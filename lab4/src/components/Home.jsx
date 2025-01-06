@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [movieList, setMovieList] = useState([]);
-    const dispatch = useDispatch();
-    const favorites = useSelector(state => state.favorites.favoriteMovies);
+    // const dispatch = useDispatch();
+    // const favorites = useSelector(state => state.favorites.favoriteMovies);
 
     const getMovie = () => {
         fetch("https://api.themoviedb.org/3/discover/movie?api_key=834b8842fd12d5f8c49bd6688d31fca4")
@@ -15,13 +15,13 @@ const Home = () => {
         .then(json => setMovieList(json.results));
     };
 
-    const toggleFavorite = (movie) => {
-        if (favorites.some(fav => fav.id === movie.id)) {
-            dispatch(removeFromFavorites(movie));
-        } else {
-            dispatch(addToFavorites(movie));
-        }
-    };
+    // const toggleFavorite = (movie) => {
+    //     if (favorites.some(fav => fav.id === movie.id)) {
+    //         dispatch(removeFromFavorites(movie));
+    //     } else {
+    //         dispatch(addToFavorites(movie));
+    //     }
+    // };
 
     useEffect(() => {
         getMovie();
@@ -41,12 +41,12 @@ const Home = () => {
                             <p className='title'>{movie.title}</p>
                             <p className='date'>{movie.release_date}</p>
                         </div>
-                        <button 
+                        {/* <button 
                             className={`favorite-btn ${favorites.some(fav => fav.id === movie.id) ? 'filled' : 'bordered'}`}
                             onClick={() => toggleFavorite(movie)}
                         >
                             {favorites.some(fav => fav.id === movie.id) ? '★' : '☆'}
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             ))}

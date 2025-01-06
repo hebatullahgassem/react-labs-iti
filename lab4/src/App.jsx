@@ -8,6 +8,7 @@ import NotFoundPage from './components/NotFoundPage';
 import Register from "./components/Register";
 
 const App = () => (
+
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<Layout/>}>
